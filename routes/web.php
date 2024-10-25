@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Iluminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 
 class Task
 {
@@ -73,6 +73,7 @@ Route::get('/tasks/{id}', function ($id) use($tasks) {
         abort(Response::HTTP_NOT_FOUND);
     }
     return view('show', ['task' => $task]);
+
 })->name('tasks.show');
 
 /*Route::get('/hallo', function () {

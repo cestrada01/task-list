@@ -1,15 +1,16 @@
-<div>
-    <h1>The list of tasks....</h1>
-</div>
+@extends('layouts.app')
 
-<div>
-    @if(count($tasks))
-        @foreach ($tasks as $task)
-            <p> {{ $task->title }}</p>
-        @endforeach
+@section('title', 'The List of Tasks')
 
-    @else
-        There are not tasks
-    @endif
-</div>
+@section('content')
+
+        @forelse ($tasks as $task)
+          <div>
+            <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a>
+          </div>
+        @empty
+          <div>There are no tasks!</div>
+        @endforelse
+
+@endsection
 
